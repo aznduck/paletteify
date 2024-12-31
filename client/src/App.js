@@ -32,11 +32,11 @@ export default function App() {
 
   useEffect(() => {
     const token = getTokenFromUrl().access_token
-    window.location.hash = ""
     if (token) {
       setSpotifyToken(token)
       spotifyApi.setAccessToken(token)
       setLoggedIn(true)
+      window.history.pushState({}, null, "/")
     }
     setLoading(false)
   }, [])
@@ -165,7 +165,7 @@ export default function App() {
           <div className="content">
             <h1>Paletteify</h1>
             <p>Transform your music into a canvas</p>
-            <a href="http://localhost:8888/login" className="login-button">
+            <a href={process.env.REACT_APP_API_URL + "/login"} className="login-button">
               Login
             </a>
           </div>
@@ -318,3 +318,4 @@ export default function App() {
     </div>
   )
 }
+
