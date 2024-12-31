@@ -14,6 +14,7 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
+require('dotenv').config();
 var client_id = process.env.CLIENT_ID; // Set in your hosting environment
 var client_secret = process.env.CLIENT_SECRET; // Set in your hosting environment
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri

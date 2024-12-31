@@ -164,7 +164,7 @@ export default function App() {
         <div className="homepage">
           <div className="content">
             <h1>Paletteify</h1>
-            <p>Transform your mudfsic into a canvas</p>
+            <p>Transform your music into a canvas</p>
             <a href="http://localhost:8888/login" className="login-button">
               Login
             </a>
