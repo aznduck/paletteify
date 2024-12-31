@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&display=swap');
+
+.app {
+  text-align: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  color: white;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.content {
+  text-align: center;
+}
+
+.homepage h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.homepage p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.login-button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  border-radius: 100px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  background-color: #111;
+}
+
+/* Dashboard styles */
+.dashboard {
+  background-color: #1d1d1d;
+  min-height: 100vh; /* Ensures the background covers the full viewport */
+  padding: 20px; /* Optional: adds spacing inside the dashboard */
+  box-sizing: border-box; /* Ensures padding doesn't affect the width/height */
+}
+
+h2, h3 {
+  color: white;
+}
+
+.fetch-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #1db954;
+  color: white;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  margin: 1rem 0;
+  transition: background-color 0.2s ease;
+}
+
+.fetch-button:hover {
+  background-color: #1aa34a;
+}
+
+.tracks-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.tracks-list li {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #333;
+  border-radius: 8px;
+  color: white;
+}
+
+.track-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.track-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.color-palette {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid white;
+}
+
+.color-swatch.large {
+  width: 50px;
+  height: 50px;      
+  cursor: pointer;                                               
+}
+
+.color-swatch.selected {
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+
+.top-colors {
+  margin-top: 2rem;
+}
+
+.color-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.time-range-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.time-range-button {
+  font-family: 'Bricolage Grotesque';
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.time-range-button.active {
+  background-color: #1db954;
+}
+
+.time-range-button:hover {
+  background-color: #444;
+}
+
+.custom-card-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-card {
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: "Arial", sans-serif;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.card-content {
+  z-index: 1;
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Bricolage Grotesque';
+}
+
+.card-content p {
+  margin: 10px 0 0;
+  font-size: 1.2rem;
+}
+
+.custom-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(15px);
+  z-index: 0;
+}
+
+.download-card {
+  font-family: 'Bricolage Grotesque';
+  padding: 10px 20px;
+  background-color: #1db954;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-card:hover {
+  background-color: #1aa34a;
+}
+
+/* Footer styles */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1d1d1d;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.footer-links {
+  font-size: 1rem;
+}
+
+.footer-link {
+  margin: 0px 10px;
+  cursor: pointer;
+  color: #1db954;
+  text-decoration: underline;
+}
+
+.footer-link:hover {
+  color: #1aa34a;
+}
+
+/* Popup styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  color: #333;
+}
+
+.popup h2 {
+  margin-bottom: 15px;
+  color: black;
+}
+
+.popup p {
+  margin-bottom: 20px;
+}
+
+.popup-close {
+  background-color: #1db954;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Bricolage Grotesque';
+}
+
+.popup-close:hover {
+  background-color: #1aa34a;
+}
+
+
+
+
+
+
+
