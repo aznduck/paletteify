@@ -4,6 +4,8 @@ import ColorThief from "colorthief"
 import { toPng } from "html-to-image";
 import "./App.css"
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || ''
+
 const spotifyApi = new SpotifyWebApi()
 
 const getTokenFromUrl = () => {
@@ -127,7 +129,7 @@ export default function App() {
   }
 
   const handleLogin = () => {
-    window.location.href = "http://localhost:8888/login";
+    window.location.href = `${API_BASE_URL}/login`
 };
 
   const filteredTracks = selectedColor

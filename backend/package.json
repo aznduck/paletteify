@@ -4,7 +4,8 @@
     "description": "Spotify Authorization Code flow example",
     "author": "Spotify",
     "scripts": {
-        "start": "node app.js"
+        "start": "node app.js",
+        "build": "cd ../client && npm install && npm run build && mv build ../backend/client-build"
     },
     "dependencies": {
         "colorthief": "^2.6.0",
