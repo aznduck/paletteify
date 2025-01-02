@@ -126,6 +126,10 @@ export default function App() {
     setSelectedColor(color) // Set the selected color
   }
 
+  const handleLogin = () => {
+    window.location.href = "http://localhost:8888/login";
+};
+
   const filteredTracks = selectedColor
     ? topTracks.filter((track) =>
         track.palette.some(
@@ -165,7 +169,7 @@ export default function App() {
           <div className="content">
             <h1>Paletteify</h1>
             <p>Transform your music into a canvas</p>
-            <a href="http://localhost:8888/login" className="login-button">
+            <a onClick={handleLogin} className="login-button">
               Login
             </a>
           </div>
