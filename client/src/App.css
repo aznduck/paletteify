@@ -120,19 +120,8 @@ h2, h3 {
 
 .color-palette {
   display: flex;
-  flex-wrap: wrap; 
   gap: 0.5rem;
   margin-top: 1rem;
-}
-
-@media (max-width: 768px) {
-  .color-palette {
-    justify-content: space-between; /* Optional: Adjust alignment for smaller screens */
-  }
-  
-  .color-palette > * {
-    flex: 0 1 calc(50% - 0.5rem); /* Two items per row */
-  }
 }
 
 .color-swatch {
@@ -143,9 +132,14 @@ h2, h3 {
 }
 
 .color-swatch.large {
-  width: 50px;
-  height: 50px;      
-  cursor: pointer;                                               
+  flex: 1 1 calc(33% - 0.5rem); /* Three swatches per row by default */
+  height: 100px; /* Adjust height as needed */
+}
+
+@media (max-width: 768px) {
+  .color-swatch.large {
+    flex: 1 1 calc(50% - 0.5rem); /* Two swatches per row on smaller screens */
+  }
 }
 
 .color-swatch.selected {
@@ -160,9 +154,9 @@ h2, h3 {
 
 .color-grid {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-evenly; /* Align swatches evenly */
 }
 
 .loading {
