@@ -1,43 +1,25 @@
 {
   "name": "paletteify",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@react-three/drei": "^9.120.4",
-    "@react-three/fiber": "^8.17.10",
-    "colorthief": "^2.6.0",
-    "cra-template": "1.2.0",
-    "framer-motion": "^11.15.0",
-    "html-to-image": "^1.11.11",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "three": "^0.171.0",
-    "web-vitals": "^4.2.4"
+  "version": "1.0.0",
+  "engines": {
+  "node": "18.x",
+  "npm": "9.x"
   },
   "scripts": {
-    "start": "cd backend && node app.js",
-    "build": "cd client && npm install && npm run build && cd ../backend && npm install",
-    "heroku-postbuild": "cd client && npm install && npm run build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "start": "node backend/app.js",
+  "build": "cd client && npm install && npm run build && cd ../backend && npm install",
+  "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+  "express": "^4.18.2",
+  "cors": "^2.8.5",
+  "dotenv": "^16.0.3",
+  "cookie-parser": "^1.4.6",
+  "request": "^2.88.2"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "cacheDirectories": [
+  "node_modules",
+  "client/node_modules",
+  "backend/node_modules"
+  ]
   }
-}
