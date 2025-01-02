@@ -126,8 +126,12 @@ h2, h3 {
 }
 
 @media (max-width: 768px) {
-  .color-grid {
-    grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+  .color-palette {
+    justify-content: space-between; /* Optional: Adjust alignment for smaller screens */
+  }
+  
+  .color-palette > * {
+    flex: 0 1 calc(50% - 0.5rem); /* Two items per row */
   }
 }
 
