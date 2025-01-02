@@ -169,11 +169,7 @@ export default function App() {
           <div className="content">
             <h1>Paletteify</h1>
             <p>Transform your music into a canvas</p>
-<<<<<<< HEAD
             <a onClick={handleLogin} className="login-button">
-=======
-            <a href={process.env.REACT_APP_API_URL + "/login"} className="login-button">
->>>>>>> d07e2be7672c736a73bc7ac676d96cfe938d0630
               Login
             </a>
           </div>
