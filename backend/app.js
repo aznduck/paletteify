@@ -13,7 +13,6 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-// Serve static files from the React build directory
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Log environment check at startup
@@ -57,17 +56,17 @@ const auth = Buffer.from(`${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}`
 console.log('Authorization header length:', auth.length);
 
 const authOptions = {
-url: 'https://accounts.spotify.com/api/token',
-form: {
-code: code,
-redirect_uri: process.env.REDIRECT_URI,
-grant_type: 'authorization_code'
-},
-headers: {
-'Authorization': `Basic ${auth}`,
-'Content-Type': 'application/x-www-form-urlencoded'
-},
-json: true
+  url: 'https://accounts.spotify.com/api/token',
+  form: {
+    code: code,
+    redirect_uri: process.env.REDIRECT_URI,
+    grant_type: 'authorization_code'
+  },
+  headers: {
+    'Authorization': `Basic ${auth}`,
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  json: true
 };
 
 // Log request details (safely)
