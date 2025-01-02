@@ -23,37 +23,63 @@ res.redirect(`https://accounts.spotify.com/authorize?${querystring.stringify({  
 });
 
 app.get('/callback', (req, res) => {
-const code = req.query.code;
-const state = req.query.state;
-const storedState = req.cookies.state;
+  const code = req.query.code;
+  const state = req.query.state;
+  const storedState = req.cookies.state;
+  
+  console.log('Received code:', code);
+  console.log('Received state:', state);
+  console.log('Stored state:', storedState);
+  
+  if (state === null || state !== storedState) {
+  console.log('State mismatch error');
+  res.redirect('/#/error/state-mismatch');
+  return;
+  }
+  
+  const authOptions = {
+  url: 'https://accounts.spotify.com/api/token',
+  form: {
+  code: code,
+  redirect_uri: process.env.REDIRECT_URI,
+  grant_type: 'authorization_code'
+  },
+  headers: {
+  'Authorization': `Basic ${Buffer.from(`         ${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}       `).toString('base64')}`
+  },
+  json: true
+  };
+  
+  console.log('Auth options:', {
+  ...authOptions,
+  headers: { Authorization: 'HIDDEN' }, // Don't log the actual credentials
+  redirect_uri: authOptions.form.redirect_uri
+  });
+  
+  request.post(authOptions, (error, response, body) => {
+  if (error) {
+  console.error('Token exchange error:', error);
+  res.redirect('/#/error/token-exchange-error');
+  return;
+  }
+  console.log('Token exchange response status:', response.statusCode);
+  console.log('Token exchange response body:', {
+    ...body,
+    access_token: body.access_token ? 'PRESENT' : 'MISSING',
+    refresh_token: body.refresh_token ? 'PRESENT' : 'MISSING'
+  });
+  
+  if (response.statusCode === 200) {
+    const access_token = body.access_token;
+    res.redirect(`/#access_token=${access_token}`);
+  } else {
+    console.error('Invalid token response:', body);
+    res.redirect('/#/error/invalid-token');
+  }
 
-if (state === null || state !== storedState) {
-res.redirect('/#/error/state-mismatch');
-return;
-}
-
-const authOptions = {
-url: 'https://accounts.spotify.com/api/token',
-form: {
-code: code,
-redirect_uri: process.env.REDIRECT_URI,
-grant_type: 'authorization_code',
-},
-headers: {
-Authorization: `Basic ${Buffer.from(`         ${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}       `).toString('base64')}`,
-},
-json: true,
-};
-
-request.post(authOptions, (error, response, body) => {
-if (!error && response.statusCode === 200) {
-const access_token = body.access_token;
-res.redirect(`/#access_token=${access_token}`);
-} else {
-res.redirect('/#/error/invalid-token');
-}
-});
-});
+  
+  });
+  });
 
 // Serve React app for any other routes
 app.get('*', (req, res) => {
