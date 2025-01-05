@@ -292,6 +292,7 @@ export default function App() {
               by adjusting the time frame from which data is being taken.
             </p>
             <p>If you notice anything wrong or have suggestions, please reach out to dhan6663@usc.edu</p>
+            <p>Made with ❤️ by David Han</p>
             <h2>Enjoy!</h2>
             <button className="popup-close" onClick={closePopup}>
               Close

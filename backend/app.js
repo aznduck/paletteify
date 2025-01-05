@@ -23,14 +23,18 @@ console.log('Redirect URI:', process.env.REDIRECT_URI);
 
 app.get('/login', (req, res) => {
 const state = crypto.randomBytes(20).toString('hex');
-res.cookie('state', state);
+res.cookie('state', state, {
+  httpOnly: true, 
+  secure: process.env.NODE_ENV === 'production', 
+  sameSite: 'Strict'
+});
 
 const authQueryParams = querystring.stringify({
-response_type: 'code',
-client_id: process.env.CLIENT_ID,
-scope: 'user-read-private user-read-email user-top-read',
-redirect_uri: process.env.REDIRECT_URI,
-state: state
+  response_type: 'code',
+  client_id: process.env.CLIENT_ID,
+  scope: 'user-read-private user-read-email user-top-read',
+  redirect_uri: process.env.REDIRECT_URI,
+  state: state
 });
 
 res.redirect(`https://accounts.spotify.com/authorize?${authQueryParams}`);
@@ -99,7 +103,6 @@ if (response.statusCode === 200) {
 });
 });
 
-// Serve React app for any other routes
 app.get('*', (req, res) => {
 res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
