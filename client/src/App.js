@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import ColorThief from "colorthief";
+import spotifyLogo from "./spotify.png";
 import { toPng } from "html-to-image";
 import "./App.css";
 
@@ -262,8 +263,8 @@ export default function App() {
                       >
                         {track.name}
                         <img
-                          src="./spotify.svg"
-                          alt="Spotify"
+                          src={spotifyLogo}
+                          alt="Spot"
                           className="spotify-icon"
                         />
                       </a>
