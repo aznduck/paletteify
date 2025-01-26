@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&display=swap");
 
 .app {
   text-align: center;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: "Bricolage Grotesque", sans-serif;
 }
 
 .homepage {
@@ -71,7 +71,8 @@
   box-sizing: border-box; /* Ensures padding doesn't affect the width/height */
 }
 
-h2, h3 {
+h2,
+h3 {
   color: white;
 }
 
@@ -147,7 +148,6 @@ h2, h3 {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-
 .top-colors {
   margin-top: 2rem;
 }
@@ -176,7 +176,7 @@ h2, h3 {
 }
 
 .time-range-button {
-  font-family: 'Bricolage Grotesque';
+  font-family: "Bricolage Grotesque";
   padding: 10px 20px;
   background-color: #333;
   color: #fff;
@@ -227,7 +227,7 @@ h2, h3 {
   margin: 0;
   font-size: 1.8rem;
   font-weight: bold;
-  font-family: 'Bricolage Grotesque';
+  font-family: "Bricolage Grotesque";
 }
 
 .card-content p {
@@ -248,7 +248,7 @@ h2, h3 {
 }
 
 .download-card {
-  font-family: 'Bricolage Grotesque';
+  font-family: "Bricolage Grotesque";
   padding: 10px 20px;
   background-color: #1db954;
   border: none;
@@ -329,16 +329,28 @@ h2, h3 {
   padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
-  font-family: 'Bricolage Grotesque';
+  font-family: "Bricolage Grotesque";
 }
 
 .popup-close:hover {
   background-color: #1aa34a;
 }
 
+.spotify-link {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  gap: 8px;
+}
 
+.spotify-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+}
 
-
-
-
-
+.track-details {
+  display: flex;
+  flex-direction: column;
+}
